@@ -1,0 +1,60 @@
+{% extends "dashboard/index.html" %}
+{% load static %}
+{% block right-content %}
+<div class="breadcrumbs">
+    <div class="breadcrumbs-inner">
+        <div class="row m-0">
+            <div class="col-sm-12">
+                <div class="page-header float-left">
+                    <div class="page-title">
+                        {% if user.first_name %}
+                        <h2>{{user.first_name}} {{user.last_name}}</h2>
+                        {% else  %}
+                        <h2>Capturar su nombre completo</h2>
+                        {% endif %}
+                    </div>
+                </div>        
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<div class="content">
+    <div class="animated fadeIn">
+        <div class="row">
+            
+            <div class="col-md-12">
+                
+
+                <div class="card">
+                    <div class="card-body">
+
+                        {% for data in data_user %}
+
+                        <p>Fecha de nacimiento: {{data.date_of_birth}}</p>
+                        <p>Genero: {{data.sex}}</p>
+                        <p>Dispuesto a reubicarse: {{data.relocate}}</p>
+                        <p>País: {{data.country}}</p>
+                        <p>Código postal: {{data.zip_code}}</p>
+                        <p>Estado: {{data.state}}</p>
+                        <p>Ciudad: {{data.city}}</p>
+                        <p>Municipio: {{data.town}}</p>
+                        <p>Otra información: {{data.other}}</p>
+                        
+                        <a href="{% url 'datos_personales_modificacion' data.id %}" class="btn btn-danger">Actualizar  informacion</a>
+                        {% endfor %}
+                        <a href="{% url 'datos_contacto' %}" class="btn btn-success">Ir a datos de contacto</a>
+                
+                    </div>
+                </div>
+    
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<div class="clearfix"></div>
+{% endblock %}

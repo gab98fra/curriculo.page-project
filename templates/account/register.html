@@ -1,0 +1,51 @@
+{% extends "account/base.html" %}
+{% load static %}
+
+{% block content-form %}
+
+                <div class="login-form">
+                    <form method="POST">{% csrf_token %}
+                        {% if "fail" in request.GET %}
+                        <div class="alert alert-danger alert-dismissible" role="alert">
+                            <button type="button" class="close" data-dismiss="alert" aria-label="clase">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                            <h6>Ingrese correctamente los datos, consideré lo siguiente:</h6><br>
+                            <p>El usuario/password deberán tener al menos 8 caracteres alfanuméricos</p>
+                            <p>Si persiste el error, intente con un usuario diferente</p>
+                        </div>
+                        {% endif %}
+                    
+                        <div class="form-group">
+                            <label>Usuario</label>
+                            {{form.username}}
+                        </div>
+                        <div class="form-group">
+                            <label>Correo electrónico</label>
+                            {{form.email}}
+                        </div>
+                        <div class="form-group">
+                            <label>Nombre</label>
+                            {{form.first_name}}
+                        </div>
+
+                        <div class="form-group">
+                            <label>Apellidos</label>
+                            {{form.last_name}}
+                        </div>
+                        <div class="form-group">
+                            <label>Password</label>
+                            {{form.password1}}
+                        </div>
+                        <div class="form-group">
+                            <label>Repetir Password</label>
+                            {{form.password2}}
+                        </div>
+                        
+                        <button type="submit" class="btn btn-primary btn-flat m-b-30 m-t-30">Registrarse</button>
+                        <div class="register-link m-t-15 text-center">
+                            <p>¿Ya tienes una cuenta? <a href="{% url 'login' %}">Iniciar sesión</a></p>
+                        </div>
+                    </form>
+                </div>
+{% endblock content-form %}

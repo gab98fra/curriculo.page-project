@@ -1,0 +1,45 @@
+{% extends "dashboard/index.html" %}
+{% load static %}
+{% block right-content %}
+<div class="breadcrumbs">
+    <div class="breadcrumbs-inner">
+        <div class="row m-0">
+            <div class="col-sm-12">
+                <div class="page-header float-left">
+                    <div class="page-title">
+                        <h2>Datos de su cuenta</h2>
+                    </div>
+                </div>        
+            </div>
+        </div>
+    </div>
+</div>
+<div class="content">
+    <div class="animated fadeIn">
+        <div class="row">      
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-body">
+
+                        <p for="">Usuario: {{user.username}}</p>
+                        <p for="">Nombre: {{user.first_name}}</p>
+                        <p for="">Apellidos: {{user.last_name}}</p>
+                        <p for="">Email: {{user.email}}</p>
+                        <p for="">Registrado desde: {{user.date_joined}}</p>
+                        <p for="">Última vez conectado : {{user.last_login}}</p>
+                        <p for="">Cuenta activa : {{user.is_active}}</p>
+                        <a class="btn btn-primary" href="{% url 'user_data_update' user.id %}">Actualizar</a>
+                
+                    </div>
+                </div>
+    
+            </div>
+
+        </div>
+    </div>
+</div>
+<div class="clearfix"></div>
+{% endblock %}
+
+
+   

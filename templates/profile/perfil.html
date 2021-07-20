@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en"> 
+<head>{% load static %}
+    <title>Perfil - Curriculo.Page</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Curriculo">
+    <meta name="author" content="Curriculo">    
+    <link rel="apple-touch-icon" href="{% static 'account/images/favicon.png' %}">
+    <link rel="shortcut icon" href="{% static 'account/images/favicon.png'%}">    
+	<script defer src="{% static 'profile/assets/fontawesome/js/all.min.js' %}"></script>
+    <link id="theme-style" rel="stylesheet" href="{% static 'profile/assets/css/theme-1.css' %}">
+</head> 
+<body>
+	<!--Left-Panel: Profile section-->
+    <header class="header text-center">	    
+	    <h1 class="blog-name pt-lg-4 mb-0"><a href="{% url 'perfil' %}">{{user.first_name}} {{user.last_name}} </a></h1>
+		<p>{{datosPersonales.sex}} - {{edad}} años</p>
+	    <nav class="navbar navbar-expand-lg navbar-dark" >
+			<div id="navigation" class="collapse navbar-collapse flex-column" >
+				<div class="profile-section pt-3 pt-lg-0">
+					{% if datosPersonales.image %}
+				    <img class="profile-image mb-3 rounded-circle mx-auto" src="{{datosPersonales.image.url}}" alt="image" >			
+					{% else %}
+					<ul class="social-list list-inline py-3 mx-auto">
+						<li class="list-inline-item"><a href="#"><i class="fas fa-portrait"></i></a></li>
+					</ul>
+					{% endif %}
+					<div class="bio mb-3" style="color: black;"  >Puesto deseado: {{objetivoProfesional.employment}} <br>
+										Sueldo deseado: ${{objetivoProfesional.salary}} {{objetivoProfesional.divisa}}<br>
+					</div>
+					<ul class="social-list list-inline py-3 mx-auto">
+			            <li class="list-inline-item"><a href="{{datosContacto.twitter_social_url}}"><i class="fab fa-twitter fa-fw"></i></a></li>
+			            <li class="list-inline-item"><a href="{{datosContacto.linkedin_social_url}}"><i class="fab fa-linkedin-in fa-fw"></i></a></li>
+			            <li class="list-inline-item"><a href="{{datosContacto.github_social_url}}"><i class="fab fa-github-alt fa-fw"></i></a></li>
+			            <li class="list-inline-item"><a href="{{datosContacto.facebook_social_url}}"><i class="fab fa-facebook fa-fw"></i></a></li>
+			            <li class="list-inline-item"><a href="{{datosContacto.instagram_social_url}}"><i class="fab fa-instagram fa-fw"></i></a></li>
+			        </ul><!--//social-list-->
+				</div>
+				
+
+				<ul class="navbar-nav flex-column text-center">
+					<h6 style="color: white;"> Datos de contacto</h6>
+					<li style="color: black; text-underline-position: below;">
+						{{datosPersonales.city}} - {{datosPersonales.country}}
+					</li>
+					<li style="color: black;">
+						Telefóno: <small>{{datosContacto.telephone}}</small>
+					</li>
+					<li style="color: black;">
+						Celular: <small>{{datosContacto.cellphone}}</small>
+					</li>
+					<li style="color: black;">
+						Email: <small>{{user.email}}</small> 
+					</li>
+					    
+				</ul>
+				<hr>
+				<ul class="navbar-nav flex-column text-center">
+					{% if idiomas %}
+					<h6 style="color:white;">Idiomas</h6>
+					{% for data in idiomas %}
+					<li style="color: black;">
+						{{data.language}} &nbsp;  <small>{{data.level}}</small> <br>
+					</li>
+					{% endfor %}
+					{% endif %}
+				</ul>
+			</div>
+		</nav>
+    </header>
+	<!--Left-Panel: profile section-->
+    
+	<!--Right-Panel: profile section-->
+    <div class="main-wrapper">
+	    <section class="blog-list px-3 py-5 p-md-5">
+		    <div class="container">
+				<div class="blog-nav nav nav-justified my-5">
+					<h2>Presentación y objetivos</h2>
+					<div style="font-size:x-large;text-align: justify;">{{objetivoProfesional.objective}}</div>
+				</div>
+
+				<div class="blog-nav nav nav-justified my-5">
+					<h2>Formacion Académica</h2>
+				</div>
+				{% if formacionAcademica %}
+				{% for data in formacionAcademica %}
+			    <div class="item mb-5">
+				    <div class="media"> 
+					    <div class="media-body">
+						    <h3 class="title mb-1">{{data.educational_level|upper}} : {{data.career}} - {{data.college}}</h3>
+						    <div class="meta mb-1">
+								<span class="date">{{data.start_date}}</span>
+								{% if data.is_active %}
+								<span class="comment">Actualmente estudiando</span>
+								{% else %}
+								<span class="time">{{data.departure_date}}</span>
+								{% endif %}
+							</div>
+					    </div>
+				    </div>
+			    </div>
+			    {% endfor %}
+				{% endif %}
+
+				<div class="blog-nav nav nav-justified my-5">
+					<h2> Experiencia profesional</h2>
+				</div>
+				{% if experienciaProfesional %}
+				{% for data in experienciaProfesional %}
+			    <div class="item mb-5">
+				    <div class="media"> 
+					    <div class="media-body">
+						    <h3 class="title mb-1">{{data.employment|upper}} - {{data.company}}</h3>
+						    <div class="meta mb-1">
+								<span class="date">{{data.start_date}}</span>
+								{% if data.is_active %}
+								<span class="comment">Actualmente trabajando</span>
+								{% else %}
+								<span class="time">{{data.departure_date}}</span>
+								{% endif %}
+							</div>
+							<div style="font-size:20px;text-align: justify;">{{data.activities}}</div>
+					    </div>
+				    </div>
+			    </div>
+			    {% endfor %}
+				{% endif %}
+				
+				
+				<div class="blog-nav nav nav-justified my-5">
+					<h2> Cursos y certificaciones</h2>
+				</div>
+				{% if cursos %}
+				{% for data in cursos %}
+			    <div class="item mb-5">
+				    <div class="media"> 
+					    <div class="media-body">
+						    <h3 class="title mb-1">{{data.course|upper}} - {{data.college}}</h3>
+						    <div class="meta mb-1">
+								<span class="date">{{data.start_date}}</span>
+								{% if data.is_active %}
+								<span class="comment">Actualmente estudiando</span>
+								{% else %}
+								<span class="time">{{data.departure_date}}</span>
+								{% endif %}
+								
+							</div>
+							{% if data.link %}
+							<div class="meta mb-1">
+								<span class="comment">{{data.link}}</span>
+							</div>
+							{% endif %}
+							<div style="font-size:20px;text-align: justify;">{{data.description}}</div>
+					    </div>
+				    </div>
+			    </div>
+			    {% endfor %}
+				{% endif %}
+			    <div class="my-2 my-md-3">
+				    <a class="btn btn-primary" href="{% url 'file_pdf' %}" target="_blank">Exportar a pdf</a>
+				</div>
+		    </div>
+	    </section>
+	    <!--Right-Panel: profile section-->
+
+	    <footer class="footer text-center py-2 theme-bg-dark">
+            <small class="copyright">Diseñado por <a href="http://webfomatica" target="_blank">curriculo.</a> page</small>
+	    </footer>
+    </div><!--//main-wrapper-->
+    
+	
+    <!-- *****CONFIGURE STYLE (REMOVE ON YOUR PRODUCTION SITE)****** -->  
+    <div id="config-panel" class="config-panel d-none d-lg-block">
+        <div class="panel-inner">
+            <a id="config-trigger" class="config-trigger config-panel-hide text-center" href="#"><i class="fas fa-cog fa-spin mx-auto" data-fa-transform="down-6" ></i></a>
+            <h5 class="panel-title">Selecionar color</h5>
+            <ul id="color-options" class="list-inline mb-0">
+                <li class="theme-1 active list-inline-item"><a data-style="{% static 'profile/assets/css/theme-1.css' %}" href="#"></a></li>
+                <li class="theme-2  list-inline-item"><a data-style="{% static 'profile/assets/css/theme-2.css' %}" href="#"></a></li>
+                <li class="theme-3  list-inline-item"><a data-style="{% static 'profile/assets/css/theme-3.css' %}" href="#"></a></li>
+                <li class="theme-4  list-inline-item"><a data-style="{% static 'profile/assets/css/theme-4.css' %}" href="#"></a></li>
+                <li class="theme-5  list-inline-item"><a data-style="{% static 'profile/assets/css/theme-5.css' %}" href="#"></a></li>
+                <li class="theme-6  list-inline-item"><a data-style="{% static 'profile/assets/css/theme-6.css' %}" href="#"></a></li>
+                <li class="theme-7  list-inline-item"><a data-style="{% static 'profile/assets/css/theme-7.css' %}" href="#"></a></li>
+                <li class="theme-8  list-inline-item"><a data-style="{% static 'profile/assets/css/theme-8.css' %}" href="#"></a></li>
+            </ul>
+            <a id="config-close" class="close" href="#"><i class="fa fa-times-circle"></i></a>
+			<h6 class="panel-title">Versión gratuita únicamente aplica color verde</h6>
+        </div><!--//panel-inner-->
+    </div><!--//configure-panel-->
+
+    <!-- Javascript -->          
+    <script src="{% static 'profile/assets/plugins/jquery-3.4.1.min.js' %}"></script>
+    <script src="{% static 'profile/assets/plugins/popper.min.js' %}"></script> 
+    <script src="{% static 'profile/assets/plugins/bootstrap/js/bootstrap.min.js'%}"></script> 
+    <!-- Style Switcher (REMOVE ON YOUR PRODUCTION SITE) -->
+    <script src="{% static 'profile/assets/js/demo/style-switcher.js' %}"></script>     
+	
+	<!--File pdf
+		&nbsp;
+		<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+	-->
+</body>
+</html> 

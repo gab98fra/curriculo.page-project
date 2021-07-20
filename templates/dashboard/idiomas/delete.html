@@ -1,0 +1,39 @@
+{% extends "dashboard/index.html" %}
+{% load static %}
+{% block right-content %}
+<div class="breadcrumbs">
+    <div class="breadcrumbs-inner">
+        <div class="row m-0">
+            <div class="col-sm-12">
+                <div class="page-header float-left">
+                    <div class="page-title">
+                        <h2>Eliminar información</h2>
+                    </div>
+                </div>        
+            </div>
+        </div>
+    </div>
+</div>
+<div class="content">
+    <div class="animated fadeIn">
+        <div class="row">
+
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-header">
+                        <strong class="card-title">Eliminar</strong>
+                    </div>
+                    <div class="card-body">
+                        <form method="POST">{% csrf_token %}
+                            <p>Desea eliminar idioma: {{form}} </p>
+                            <button type="submit" class="btn btn-danger delete-event waves-effect waves-light">Eliminar</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+<div class="clearfix"></div>
+{% endblock %}

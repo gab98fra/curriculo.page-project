@@ -1,0 +1,7 @@
+__pycache__
+migrations
+account/migrations
+dashboard/migrations
+home/migrations
+templates/generic
+db.sqlite3

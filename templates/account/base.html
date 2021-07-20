@@ -1,0 +1,54 @@
+<!doctype html>
+<head>{% load static %}
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Curriculo.Page</title>
+    <meta name="Curriculo.Page"/>
+    <meta name="keywords" content="Curriculum vitae"/>
+    <meta name="description" content="Curriculo.Page le permite diseñar su curriculum vitae de manera fácil e interactiva y gratis"/>
+    <meta name="author" content="https://github.com/gab98fra" />
+    <meta property="og:locale" content="en_MX"/>
+    <meta property="og:type" content="website"/>
+    <meta property="og:title" content="Curriculo.Page"/>
+    <meta property="og:description" content="Curriculo.Page es una plataforma que le permite diseñar su curriculum de manera fácil e interactiva, grátis y con diversas plantiallas para versiones premium."/>
+    <meta property="og:site_name" content="Curriculo.Page"/>
+    <meta property="og:image" content="https://webfomatica.xyz/dev/lan/img/logo.png"/>
+    <meta itemprop="name" content="Curriculo.Page"/>
+    <meta itemprop="image" content="https://webfomatica.xyz/dev/lan/img/logo.png"/>
+    <meta property="og:url" content="https://curriculo.page"/>
+    <meta name="twitter:card" content="summary_large_image"/>
+    <meta name="twitter:description" content="Curriculo.Page es una plataforma que le permite diseñar su curriculum de manera fácil e interactiva, grátis y con diversas plantiallas para versiones premium."/>
+    <meta name="twitter:title" content="Curriculo.Page"/>
+    <meta name="twitter:image" content="https://webfomatica.xyz/dev/lan/img/logo.png"/>
+    <link rel="apple-touch-icon" href="{% static 'account/images/favicon.png' %}">
+    <link rel="shortcut icon" href="{% static 'account/images/favicon1.png'%}">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="{% static 'account/assets/css/cs-skin-elastic.css' %}">
+    <link rel="stylesheet" href="{% static 'account/assets/css/style.css' %}">
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,600,700,800' rel='stylesheet' type='text/css'>
+
+</head>
+<body class="bg-dark">
+    <div class="sufee-login d-flex align-content-center flex-wrap">
+        <div class="container">
+            <div class="login-content">
+                <div class="login-logo">
+                    <a href="{% url 'home:home' %}">
+                        <img class="align-content" src="{% static 'account/images/logo1.png' %}" alt="">
+                    </a>
+                </div>
+                {% block content-form %}
+                {% endblock content-form %}
+
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/jquery@2.2.4/dist/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/js/bootstrap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jquery-match-height@0.7.2/dist/jquery.matchHeight.min.js"></script>
+    <script src="{% static 'account/assets/js/main.js' %}"></script>
+</body>
+</html>

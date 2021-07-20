@@ -1,0 +1,61 @@
+{% extends "dashboard/index.html" %}
+{% load static %}
+{% block right-content %}
+<div class="breadcrumbs">
+    <div class="breadcrumbs-inner">
+        <div class="row m-0">
+            <div class="col-sm-12">
+                <div class="page-header float-left">
+                    <div class="page-title">
+                        <h2>Diseño Personalizado</h2>
+                    </div>
+                </div>        
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="content">
+    <div class="animated fadeIn">
+        <div class="row">
+            
+            <div class="col-md-12">
+                <div class="card">
+
+                    <div class="card-header">
+                        <strong class="card-title">Lista</strong>
+                    </div>
+
+                    {% for ast in assistance %}
+                        <p>{{ast.id}}</p>
+                        <p>{{ast.issue}}</p>
+                        <p>{{ast.description}}</p>
+                        <button class="btn btn-primary" onclick="open_modal_update('{% url 'support:assistance_update' ast.id %}')">Editar</button>
+                    {% endfor %}
+
+                </div>              
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="update" role="dialog"></div>
+
+<div class="clearfix"></div>
+{% endblock %}
+
+
+{% block scripts %}
+<script text="text/javascript">
+    //Para no generar conflictos
+    var $=jQuery.noConflict();
+    function open_modal_update(url){
+        $('#update').load(url, function(){
+            $(this).modal('show');
+        })
+        
+    }
+
+</script>
+{% endblock scripts %}

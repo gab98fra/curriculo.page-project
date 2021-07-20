@@ -1,0 +1,56 @@
+{% extends "dashboard/index.html" %}
+{% load static %}
+{% block right-content %}
+<div class="breadcrumbs">
+    <div class="breadcrumbs-inner">
+        <div class="row m-0">
+            <div class="col-sm-12">
+                <div class="page-header float-left">
+                    <div class="page-title">
+                        <h2>Cursos</h2>
+                    </div>
+                </div>        
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<div class="content">
+    <div class="animated fadeIn">
+        <div class="row">
+            
+            <div class="col-md-12">
+                {% for data in data_user %}
+                <div class="card">
+                    <div class="card-body">
+
+                        <p>Curso: {{data.course}}</p>
+                        <p>Institución: {{data.college}}</p>
+                        <p>Link del certificado: {{data.link}}</p>
+                        <p>Fecha de inicio: {{data.start_date}}</p>
+                        <p>Fecha de finalización: {{data.departure_date}}</p>
+                        <p>En curso: {{data.is_active}}</p>
+                        <p>Descripción: {{data.description}}</p>
+                        <a href="{% url 'cursos_modificacion' data.id %}" class="btn btn-primary">Actualizar</a>
+                        <a href="{% url 'cursos_eliminar' data.id %}" class="btn btn-danger">Eliminar</a>
+                    </div>
+                </div>
+                {% endfor %}
+                <div class="card">
+                    <div class="card-body">        
+                        <a href="{% url 'cursos_agregar' %}" class="btn btn-primary">Agregar otra</a>
+                        <a href="{% url 'perfil' %}" class="btn btn-success" target="_bank">Visitar mi Curriculum</a>
+                    </div>
+                </div>
+                        
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<div class="clearfix"></div>
+{% endblock %}
+

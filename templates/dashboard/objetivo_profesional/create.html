@@ -1,0 +1,59 @@
+{% extends "dashboard/index.html" %}
+{% load static %}
+{% block right-content %}
+
+<div class="breadcrumbs">
+    <div class="breadcrumbs-inner">
+        <div class="row m-0">
+            <div class="col-sm-12">
+                <div class="page-header float-left">
+                    <div class="page-title">
+                        <h2>Objetivos Profesionales</h2>
+                    </div>
+                </div>        
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<div class="content">
+    <div class="animated fadeIn">
+        <div class="row">
+            <div class="col-md-12">
+
+
+                <div class="card">
+                    <div class="card-header">
+                        <strong class="card-title">Crear Objetivo</strong>
+                    </div>
+
+                    <div class="card-body">
+                        <form action="" method="post">{% csrf_token %}
+                            <!--  {{form.as_p}} -->
+                            <p><label for="id_employment">Puesto deseado:</label> <input type="text" name="employment" maxlength="50" required id="id_employment"></p>
+                            <p><label for="id_salary">Sueldo deseado:</label> <input type="number" name="salary" step="any" required id="id_salary"></p>
+                            <p><label for="id_divisa">Divisa:</label> 
+                                <select name="divisa" id="id_divisa">
+                                <option value="" selected>---------</option>
+                                <option value="MX">MX</option>
+                                <option value="USD">USD</option>
+                              </select></p>
+                            <p><label for="id_objective">Objetivos profesionales:</label> 
+                            <textarea name="objective" cols="40" rows="10" maxlength="2000" id="id_objective">
+                            </textarea></p>
+                            <button type="submit" class="btn btn-primary">Enviar</button>
+                        </form>
+                    </div>
+      
+              </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<div class="clearfix"></div>
+{% endblock %}

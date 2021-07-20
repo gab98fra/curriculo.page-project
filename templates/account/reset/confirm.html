@@ -1,0 +1,15 @@
+{% extends "account/base.html" %}
+{% load static %}
+{% block content-form %}
+                <div class="login-form">
+                    <h3>Ingrese su nueva contraseña</h3><br>
+                    <p>Ingresar correctamente los datos en ambos espacios deberá ser iguales</p>
+                    <form method="POST">{% csrf_token %}
+                        <div class="form-group">
+                            <label>Nueva contraseña: </label>{{form.new_password1}}
+                            <label>Repetir contraseña contraseña: </label>{{form.new_password2}}
+                        </div>
+                        <button type="submit" class="btn btn-primary btn-flat m-b-15">Recuperar acceso</button>
+                    </form>
+                </div>
+{% endblock content-form %}

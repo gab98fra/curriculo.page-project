@@ -1,0 +1,48 @@
+{% extends "dashboard/index.html" %}
+{% load static %}
+{% block right-content %}
+<div class="breadcrumbs">
+    <div class="breadcrumbs-inner">
+        <div class="row m-0">
+            <div class="col-sm-12">
+                <div class="page-header float-left">
+                    <div class="page-title">
+                        <h2>Idiomas</h2>
+                    </div>
+                </div>        
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="content">
+    <div class="animated fadeIn">
+        <div class="row">
+            
+            <div class="col-md-12">
+                {% for data in data_user %}
+                <div class="card">
+                    <div class="card-body">
+
+                        <p>Idioma: {{data.language}}</p>
+                        <p>Nivel: {{data.level}}</p>
+                        <a href="{% url 'idiomas_modificacion' data.id %}" class="btn btn-primary">Actualizar</a>
+                        <a href="{% url 'idiomas_eliminar' data.id %}" class="btn btn-danger">Eliminar</a>
+                    </div>
+                </div>
+                {% endfor %}
+                <div class="card">
+                    <div class="card-body">        
+                        <a href="{% url 'idiomas_agregar' %}" class="btn btn-primary">Agregar otra</a>
+                        <a href="{% url 'cursos' %}" class="btn btn-success">Ir a Cursos</a>
+                    </div>
+                </div>
+                        
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<div class="clearfix"></div>
+{% endblock %}

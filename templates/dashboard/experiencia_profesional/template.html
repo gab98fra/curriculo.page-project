@@ -1,0 +1,54 @@
+{% extends "dashboard/index.html" %}
+{% load static %}
+{% block right-content %}
+<div class="breadcrumbs">
+    <div class="breadcrumbs-inner">
+        <div class="row m-0">
+            <div class="col-sm-12">
+                <div class="page-header float-left">
+                    <div class="page-title">
+                        <h2>Formación Académica</h2>
+                    </div>
+                </div>        
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<div class="content">
+    <div class="animated fadeIn">
+        <div class="row">
+            
+            <div class="col-md-12">
+                {% for data in data_user %}
+                <div class="card">
+                    <div class="card-body">
+
+                        <p>Posición: {{data.employment}}</p>
+                        <p>Empresa: {{data.company}}</p>
+                        <p>Actividades: {{data.activities}}</p>
+                        <p>Fecha de inicio: {{data.start_date}}</p>
+                        <p>Fecha de finalización: {{data.departure_date}}</p>
+                        <p>Sigue trabajando: {{data.is_active}}</p>
+                        <a href="{% url 'experiencia_profesional_modificacion' data.id %}" class="btn btn-primary">Actualizar  informacion</a>
+                        <a href="{% url 'experiencia_profesional_eliminar' data.id %}" class="btn btn-danger">Eliminar  informacion</a>
+                    </div>
+                </div>
+                {% endfor %}
+                <div class="card">
+                    <div class="card-body">        
+                        <a href="{% url 'experiencia_profesional_agregar' %}" class="btn btn-success">Agregar otra</a>
+                        <a href="{% url 'formacion_academica' %}" class="btn btn-success">Ir a Formacion Académica</a>
+                    </div>
+                </div>
+                        
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<div class="clearfix"></div>
+{% endblock %}

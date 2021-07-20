@@ -1,0 +1,93 @@
+<!DOCTYPE html>{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Curriculo.Page</title>
+    <meta name="Curriculo.Page"/>
+    <meta name="keywords" content="Curriculum vitae"/>
+    <meta name="description" content="Curriculo.Page le permite diseñar su curriculum vitae de manera fácil e interactiva y gratis"/>
+    <meta name="author" content="https://github.com/gab98fra" />
+    <meta property="og:locale" content="en_MX"/>
+    <meta property="og:type" content="website"/>
+    <meta property="og:title" content="Curriculo.Page"/>
+    <meta property="og:description" content="Curriculo.Page es una plataforma que le permite diseñar su curriculum de manera fácil e interactiva, grátis y con diversas plantiallas para versiones premium."/>
+    <meta property="og:site_name" content="Curriculo.Page"/>
+    <meta property="og:image" content="https://webfomatica.xyz/dev/lan/img/logo.png"/>
+    <meta itemprop="name" content="Curriculo.Page"/>
+    <meta itemprop="image" content="https://webfomatica.xyz/dev/lan/img/logo.png"/>
+    <meta property="og:url" content="https://curriculo.page"/>
+    <meta name="twitter:card" content="summary_large_image"/>
+    <meta name="twitter:description" content="Curriculo.Page es una plataforma que le permite diseñar su curriculum de manera fácil e interactiva, grátis y con diversas plantiallas para versiones premium."/>
+    <meta name="twitter:title" content="Curriculo.Page"/>
+    <meta name="twitter:image" content="https://webfomatica.xyz/dev/lan/img/logo.png"/>
+    <link rel="apple-touch-icon" href="{% static 'account/images/favicon1.png' %}">
+    <link rel="shortcut icon" href="{% static 'account/images/favicon.png'%}">
+    <link rel="stylesheet" href="https://unpkg.com/tailwindcss/dist/tailwind.min.css" />
+    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700" rel="stylesheet" />
+    <style>
+      .gradient {
+        background: linear-gradient(90deg, #0c1c5d 0%,green 100%);
+      }
+    </style>
+</head>
+<body class="leading-normal tracking-normal text-white gradient" style="font-family: 'Source Sans Pro', sans-serif;">
+  {% block menu %}
+  <!--Nav-->
+  <nav id="header" class="fixed w-full z-30 top-0 text-white">
+    <div class="w-full container mx-auto flex flex-wrap items-center justify-between mt-0 py-2">
+      <div class="pl-4 flex items-center">
+        <a class="toggleColour text-white no-underline hover:no-underline font-bold text-2xl lg:text-4xl" href="#">
+          <img style="height: 50px;" src="{% static 'home/ima/logo.png' %}" alt="Curriculo.Page" >
+        </a>
+      </div>
+      <div class="block lg:hidden pr-4">
+        <button id="nav-toggle" class="flex items-center p-1 text-pink-800 hover:text-gray-900 focus:outline-none focus:shadow-outline transform transition hover:scale-105 duration-300 ease-in-out">
+          <svg class="fill-current h-6 w-6" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+            <title>Menu</title>
+            <path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z" />
+          </svg>
+        </button>
+      </div>
+      <div class="w-full flex-grow lg:flex lg:items-center lg:w-auto hidden mt-2 lg:mt-0 bg-white lg:bg-transparent text-black p-4 lg:p-0 z-20" id="nav-content">
+        <ul class="list-reset lg:flex justify-end flex-1 items-center">
+          <li class="mr-3">
+            <a class="inline-block py-2 px-4 text-black font-bold no-underline" href="#about">Curriculum</a>
+          </li>
+          <li class="mr-3">
+            <a class="inline-block text-black no-underline hover:text-gray-800 hover:text-underline py-2 px-4" href="#more">Conocer más</a>
+          </li>
+          <li class="mr-3">
+            <a class="inline-block text-black no-underline hover:text-gray-800 hover:text-underline py-2 px-4" href="#faq">Preguntas Frecuentes</a>
+          </li>
+        </ul>
+        <a id="navAction" href="{% url 'login' %}" class="mx-auto lg:mx-0 hover:underline bg-white text-gray-800 font-bold rounded-full mt-4 lg:mt-0 py-4 px-8 shadow opacity-75 focus:outline-none focus:shadow-outline transform transition hover:scale-105 duration-300 ease-in-out">
+          Mi cuenta
+        </a>
+      </div>
+    </div>
+    <hr class="border-b border-gray-100 opacity-25 my-0 py-0" />
+  </nav>
+  {% endblock menu%}
+
+  {% block content-body %}
+  {% endblock content-body %}
+  
+  <!--Footer-->
+  <footer class="bg-white">
+    <div class="container mx-auto px-8">
+      <div class="w-full flex flex-col md:flex-row py-6">
+        <div class="flex-1 mb-6 text-black">
+          <a class="text-black-600 no-underline hover:no-underline font-bold text-2xl lg:text-4xl" href="https://curriculo.page">
+          Curriculo.Page  
+          </a>
+        </div>
+        <span>Webfomatica</span>
+      </div> 
+    </div>
+  </footer>
+
+  <script src="{% static 'home/src/main.js' %}"></script>
+</body>
+</html>
