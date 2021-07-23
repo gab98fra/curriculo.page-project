@@ -11,7 +11,7 @@ Curriculo.page es una plataforma que permite diseñar curriculum vitae con diver
 ![](media/design/design3.PNG)
 
 # Observaciones
-Este respositorio es una versión estándar, puede utilizarlo, descargarlo y modificarlo. Sin embargo es importante que usted sepa que carece de ciertas funcionalidades y puede contener vulnerabilidades con correcciones pendientes.
+Este repositorio es una versión estándar, puede utilizarlo, descargarlo y modificarlo. Sin embargo es importante que usted sepa que carece de ciertas funcionalidades y puede contener vulnerabilidades con correcciones pendientes.
 
 Si usted desea utilizar la versión completa y actualizada la encuentra en su sitio oficial: https://curriculo.page
 
