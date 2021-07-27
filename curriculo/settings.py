@@ -1,9 +1,9 @@
 from pathlib import Path
-from decouple import conf
+from decouple import config
 
 BASE_DIR = Path(__file__).resolve().parent.parent
-SECRET_KEY = conf("SECRET_KEY")
-DEBUG = conf("DEBUG")
+SECRET_KEY = config("SECRET_KEY")
+DEBUG = config("DEBUG")
 
 ALLOWED_HOSTS = []
 
@@ -79,15 +79,12 @@ AUTH_PASSWORD_VALIDATORS = [
 
 
 LANGUAGE_CODE = 'es-MX'#en-us
-
 TIME_ZONE = 'UTC'
-
 USE_I18N = True
-
 USE_L10N = True
-
 USE_TZ = True
 
+#SMTP
 EMAIL_BACKEND='django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST= 'host.host'
 EMAIL_PORT=587
