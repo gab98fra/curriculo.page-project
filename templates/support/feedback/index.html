@@ -28,7 +28,7 @@
                         <form  id="form_feedback" action="{% url 'support:feedback' %}" method="POST">
                             {% csrf_token %}
                             {{form.as_p}}
-                            <button class="btn btn-primary" onclick="createFeedBack()">Enviar</button>
+                            <button class="btn btn-primary" type="button" onclick="createFeedBack();">Enviar</button>
                         </form>
                         <div id="success">
 
