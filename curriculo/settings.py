@@ -1,8 +1,9 @@
 from pathlib import Path
+from decouple import conf
 
 BASE_DIR = Path(__file__).resolve().parent.parent
-SECRET_KEY = 'secret_key'
-DEBUG = True
+SECRET_KEY = conf("SECRET_KEY")
+DEBUG = conf("DEBUG")
 
 ALLOWED_HOSTS = []
 
@@ -100,7 +101,6 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS = [
     BASE_DIR / "static",
         ]
-
 MEDIA_URL='/media/'
 MEDIA_ROOT=(
     BASE_DIR / 'media'
