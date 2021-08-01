@@ -5,7 +5,6 @@ from django.utils import timezone
 from django.views.generic import TemplateView, View
 from dashboard.models import(DatosPersonalesModel, DatosContactoModel, ObjetivoProfesionalModel,
                     ExperienciaProfesionalModel, FormacionAcademicaModel, IdiomasModel, CursosCertificacionesModel)
-from .utils import render_to_pdf
 from .mixins import Autenticar_ValidarDatosMixin
 
 
