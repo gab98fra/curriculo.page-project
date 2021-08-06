@@ -1,9 +1,9 @@
-#Errores 404 y 500 https://www.youtube.com/watch?v=cE66WnX8Euo
 from django.urls import path
 from django.conf.urls import handler404, handler500
 from .views import HomeView, Error404View, Error500View
 
 app_name="home"
+
 
 urlpatterns = [
     path('', HomeView.as_view(), name="home"),
