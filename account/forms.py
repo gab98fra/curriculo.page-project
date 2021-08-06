@@ -69,16 +69,6 @@ class PasswordChangeForm1(PasswordChangeForm):
 
 
 
-"""Recupertar Acceso a la cuenta
-
-    -PasswordResetForm - Envía el correo de recuperación de cuenta
-    -PasswordResetDoneView - Mensaje de de envío de correo satisfactorio
-    -PasswordResetConfirmView - Link para resetear la cuenta
-        -SetPasswordForm
-    -PaaswordResetCompleteView - Password modificado
-
-"""
-
 class PasswordResetForm1(PasswordResetForm):
 #Recuperar acceso
     
