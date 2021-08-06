@@ -1,5 +1,5 @@
 # Curriculo.page-project
-Curriculo.page es una plataforma que permite diseñar curriculum vitae con diversas plantillas y descargar en formato PDF gratis.
+<a href="https://www.curriculo.page" target="_blank">Curriculo.page</a> es una plataforma que permite diseñar curriculum vitae con diversas plantillas y descargar en formato PDF gratis.
 
 ## Diseño
 ![](media/design/design1.PNG)
