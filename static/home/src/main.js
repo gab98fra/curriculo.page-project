@@ -1,3 +1,13 @@
+
+/*  # ----------------------------------------------------------------------------
+    # Nombre:       main.js
+    # Autor:        Gabriel
+    # GitHub:       https://github.com/gab98fra/
+    # Creado:       01 de Julio 2021
+    # Modificado:   01 de Julio 2021
+    # Copyright:    (c) 2020 by Gabriel F, 2021
+    # ----------------------------------------------------------------------------
+*/
 var scrollpos = window.scrollY;
 var header = document.getElementById("header");
 var navcontent = document.getElementById("nav-content");
