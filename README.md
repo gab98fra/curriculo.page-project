@@ -11,7 +11,7 @@
 ![](media/design/design3.PNG)
 
 # Comentarios y observaciones
-Este repositorio es una versión estándar, puede utilizarlo, descargarlo y modificarlo. <br>
+Este repositorio es una versión estándar y limitada. Puede utilizarlo, descargarlo y modificarlo. <br>
 Sin embargo es importante considerar los siguientes puntos: <br>
   
   1. Carece de ciertas funcionalidades y,
