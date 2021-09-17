@@ -6,17 +6,26 @@ from django.views.generic import TemplateView, ListView, CreateView
 from django.urls import reverse_lazy
 from django.views.generic.base import View
 from django.views.generic.edit import UpdateView
-from .models import FAQModel, AssistanceModel, FeedbackModel
-from .forms import AssistanceForm, FeedbackForm
+from app.support.models import FAQModel, AssistanceModel, FeedbackModel
+from app.support.forms import AssistanceForm, FeedbackForm
 
 
 class FAQView(TemplateView):
-    "Template: Preguntas Frecuentes"
+    """Template: Preguntas Frecuentes
+        
+        
+        :TemplateView, vista basada en clases django
+    """
 
     template_name="support/faq.html"
 
 class FAQListView(ListView):
-    "Petición ajax: Preguntas Frecuentes"
+    """Preguntas Frecuentes
+        Petición ajax para obtner información de modelo FAQModel
+        
+        
+        :ListView, vista django
+    """
 
     model=FAQModel
     queryset=model.objects.all()
@@ -38,6 +47,7 @@ class AssistanceView(TemplateView):
 
 class AssistanceListView(ListView):
     "Lista de asesoría solicitada"
+    
     model=AssistanceModel
     template_name="support/assistance/list.html"
     context_object_name="assistance"
@@ -52,7 +62,11 @@ class AssistanceCreateView(CreateView):
     success_url=reverse_lazy("support:assistance")
 
 class AssistanceUpdateView(UpdateView):
-    "Actualizar asesoría"
+    """Actualizar asesoría
+    
+    
+        :UpdateView, vista django
+    """
 
     model=AssistanceModel
     form_class=AssistanceForm
@@ -61,7 +75,12 @@ class AssistanceUpdateView(UpdateView):
     success_url=reverse_lazy("support:assistance_list")
 
 class FeedbackView(CreateView):
-    "Creación de comentarios a través de AJAX"
+    """Comentarios generados
+        La información es enviada a través de ajax
+        
+        
+        :CreateViewm, vista django
+    """
     
     model=FeedbackModel
     form_class=FeedbackForm
