@@ -3,7 +3,7 @@ from .models import AssistanceModel, FeedbackModel
 
 
 class AssistanceForm(forms.ModelForm):
-    "Formulario de Asistencia personalizada"
+    "Assitance Form"
 
     class Meta:
         model=AssistanceModel
@@ -16,7 +16,7 @@ class AssistanceForm(forms.ModelForm):
         }
 
 class FeedbackForm(forms.ModelForm):
-    "Formulario de comentarios y observaciones"
+    "Feedback form"
     
     class Meta:
         model=FeedbackModel
