@@ -4,7 +4,11 @@ from django.contrib.auth.forms import (AuthenticationForm, UserCreationForm, Pas
 from django.contrib.auth.models import User
 
 class LoginForm(AuthenticationForm):
-    "Formulario Iniciar sesión"
+    """Login Form
+        
+        
+        :AuthenticationForm: django form allows user authentication
+    """
     
     def __init__(self, *args, **kwargs):
         super(LoginForm, self).__init__(*args, **kwargs)
@@ -22,7 +26,11 @@ class LoginForm(AuthenticationForm):
     }
 
 class CreateUserForm(UserCreationForm):
-    "Formulario Registrarse"
+    """Add user form
+        
+        
+        :UserCreationForm: django form allows adding user
+    """
 
     def __init__(self,*args, **kwargs):
         super(CreateUserForm, self).__init__(*args, **kwargs)
@@ -48,15 +56,23 @@ class CreateUserForm(UserCreationForm):
     
     
 class UserDataUpdateForm(forms.ModelForm):
-    """ Formulario: Actualizar datos del usuario
+    """Update user data
+        
+        
+        :ModelForm: django model-form
     """
     class Meta:
+      
         model=User
         fields = ['first_name','last_name', 'email']
 
 
 class PasswordChangeForm1(PasswordChangeForm):
-#Modificar el password 
+    """Password change form
+        
+        
+        :PasswordChangeForm: django form allows to change the password of the user
+    """
 
     def __init__(self, *args, **kwargs):
         super(PasswordChangeForm1, self).__init__(*args, **kwargs)
@@ -70,11 +86,14 @@ class PasswordChangeForm1(PasswordChangeForm):
 
 
 class PasswordResetForm1(PasswordResetForm):
-#Recuperar acceso
+    """Password reset form
+        
+        
+        :PasswordResetForm: django form
+    """
     
     def __init__(self, *args, **kwargs):
         super(PasswordResetForm1, self).__init__(*args, **kwargs)
-
         self.fields['email'].widget.attrs['class']='form-control'
         self.fields['email'].widget.attrs['placeholder']='Email'
     
@@ -83,8 +102,13 @@ class PasswordResetForm1(PasswordResetForm):
         fields = ['email']
 
 class SetPasswordForm1(SetPasswordForm):
-#Nodificar la contraseña
-    def __init__(self, *args, **kwargs):
+  """Set Password
+    
+    
+      :SetPasswordForm: django form allows to set user password
+  """
+    
+  def __init__(self, *args, **kwargs):
         super(SetPasswordForm1, self).__init__(*args, **kwargs)
         self.fields['new_password1'].widget.attrs['class']='form-control'
         self.fields['new_password1'].widget.attrs['placeholder']='Nueva contraseña'
