@@ -3,7 +3,7 @@ from django.contrib.auth.models import User
 
 
 class FAQModel(models.Model):
-    "Preguntas Frecuentes"
+    "FAQ Model"
     
     id=models.AutoField(primary_key=True)
     question=models.CharField(max_length=100)
@@ -14,7 +14,7 @@ class FAQModel(models.Model):
 
 
 class AssistanceModel(models.Model):
-    "Asesoría personalizada"
+    "Assistance Model"
     
     id=models.AutoField(primary_key=True)
     issue=models.CharField(max_length=40)
@@ -25,7 +25,7 @@ class AssistanceModel(models.Model):
     user=models.ForeignKey(User, on_delete=models.CASCADE)
 
 class FeedbackModel(models.Model):
-    "Retroalimentación"
+    "Feedback model"
     
     id=models.AutoField(primary_key=True)
     issue=models.CharField(max_length=40)
