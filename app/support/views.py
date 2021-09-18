@@ -11,20 +11,19 @@ from app.support.forms import AssistanceForm, FeedbackForm
 
 
 class FAQView(TemplateView):
-    """Template: Preguntas Frecuentes
+    """Template:FAQ
         
         
-        :TemplateView, vista basada en clases django
+        :TemplateView: django view
     """
 
     template_name="support/faq.html"
 
 class FAQListView(ListView):
-    """Preguntas Frecuentes
-        Petición ajax para obtner información de modelo FAQModel
+    """FAQ
+        Ajax request
         
-        
-        :ListView, vista django
+        :ListView: django view
     """
 
     model=FAQModel
@@ -40,20 +39,20 @@ class FAQListView(ListView):
 
 
 class AssistanceView(TemplateView):
-    "Asesoría personalizada "
+    "Support view "
     
     template_name="support/assistance/assistance.html"
 
 
 class AssistanceListView(ListView):
-    "Lista de asesoría solicitada"
+    "Support List"
     
     model=AssistanceModel
     template_name="support/assistance/list.html"
     context_object_name="assistance"
 
 class AssistanceCreateView(CreateView):
-    "Crear Asesoría personalizada"
+    "Create support"
 
     model=AssistanceModel
     form_class=AssistanceForm
@@ -62,7 +61,7 @@ class AssistanceCreateView(CreateView):
     success_url=reverse_lazy("support:assistance")
 
 class AssistanceUpdateView(UpdateView):
-    """Actualizar asesoría
+    """Update support
     
     
         :UpdateView, vista django
@@ -75,8 +74,8 @@ class AssistanceUpdateView(UpdateView):
     success_url=reverse_lazy("support:assistance_list")
 
 class FeedbackView(CreateView):
-    """Comentarios generados
-        La información es enviada a través de ajax
+    """Feedback view
+        Ajax request
         
         
         :CreateViewm, vista django
