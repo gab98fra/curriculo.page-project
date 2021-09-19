@@ -2,13 +2,13 @@ from django.db import models
 from django.contrib.auth.models import User
 
 def user_directory_path(instance, filename):
-    "Directorio para fotos de perfil"
-
-    #MEDIA_ROOT/photo/user_<id>/<filename>
+    "Photo path"
+    
     return 'photo/user_{0}/{1}'.format(instance.user.id, filename)
 
 
 class DatosPersonalesModel(models.Model):
+    
     sex_op=(
         ('Femenino', 'Mujer'),
         ('Masculino', 'Hombre'),
@@ -76,6 +76,7 @@ class DatosContactoModel(models.Model):
 
 
 class ObjetivoProfesionalModel(models.Model):
+    
     list_divisa=(
         ("MX", "MX"),
         ("USD", "USD"),
@@ -119,6 +120,7 @@ class ExperienciaProfesionalModel(models.Model):
         return self.employment
 
 class FormacionAcademicaModel(models.Model):
+    
     leve_list=(
         ('Primaria','Primaria'),
         ('Secundaria','Secundaria'),
@@ -146,6 +148,7 @@ class FormacionAcademicaModel(models.Model):
 
 
 class IdiomasModel(models.Model):
+    
     language_list=(
         ("Nativo", "Nativo"),
         ("Principiante", "Principiante"),
@@ -169,6 +172,7 @@ class IdiomasModel(models.Model):
 
 
 class CursosCertificacionesModel(models.Model):
+    
     id=models.AutoField(primary_key=True)
     course=models.CharField(max_length=50,blank=False )
     college=models.CharField(max_length=50,blank=True, null=True )
@@ -190,6 +194,7 @@ class CursosCertificacionesModel(models.Model):
         return self.course
 
 class CvFileModel(models.Model):
+    
     id=models.AutoField(primary_key=True)
     name=models.CharField(max_length=50, blank=False)
     file=models.FileField(upload_to="file/%y/%m/%d/")
