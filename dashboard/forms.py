@@ -15,7 +15,6 @@ class DatosPersonalesForm(forms.ModelForm):
 
     class Meta:
         model=DatosPersonalesModel
-        #fields=['date_of_birth', "image", "sex", "relocate", "country", "zip_code", "state", "city", "town", "other"]
         fields="__all__"
         exclude=['user']
         
