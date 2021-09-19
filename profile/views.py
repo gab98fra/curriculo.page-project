@@ -10,28 +10,28 @@ from profile.mixins import Autenticar_ValidarDatosMixin
 
 
 class PerfilView(Autenticar_ValidarDatosMixin,View):
-    """Página principal
-        Obtiene la información del usuario logeado
-        
-        :Autenticar_ValidarDatosMixin, mixin creado para autenticación y validación de datos
-        :view, clase django
+    """User profile
+    
+    
+        :Autenticar_ValidarDatosMixin:Validates user authentication
+        :View:django view
     """
     template_name="profile/perfil.html"
     
     def get_queryset(self,user):
-        "Retonara datos del usuario"
+        "Get user data"
         
         datosPersonales=DatosPersonalesModel.objects.get(user=request.user)
         datosContacto=DatosContactoModel.objects.get(user=request.user)
         objetivoProfesional=ObjetivoProfesionalModel.objects.get(user=request.user)
         experienciaProfesional=ExperienciaProfesionalModel.objects.filter(user=request.user)
-        experienciaProfesional=experienciaProfesional.order_by("-is_active", "-start_date") # Ordenado de manera descente por: activos y fecha de inicio
+        experienciaProfesional=experienciaProfesional.order_by("-is_active", "-start_date")
         formacionAcademica=FormacionAcademicaModel.objects.filter(user=request.user)
         formacionAcademica=formacionAcademica.order_by("-is_active", "-start_date")
         cursos=CursosCertificacionesModel.objects.filter(user=request.user)
         cursos=cursos.order_by("-is_active", "-start_date")
         idiomas=IdiomasModel.objects.filter(user=request.user)
-        #Calcular la edad
+        #Age
         age=(datetime.date.today() - datosPersonales.date_of_birth)/365
         age=age.days
         
@@ -47,7 +47,6 @@ class PerfilView(Autenticar_ValidarDatosMixin,View):
         return context_data
       
     def get(self, request, *args, **kwargs):
-        "Perfil del usuario"
 
         context_data=self.get_queryset(request.user)  
 
