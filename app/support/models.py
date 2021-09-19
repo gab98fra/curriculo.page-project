@@ -14,7 +14,7 @@ class FAQModel(models.Model):
 
 
 class AssistanceModel(models.Model):
-    "Assistance Model"
+    "Assistance/support Model"
     
     id=models.AutoField(primary_key=True)
     issue=models.CharField(max_length=40)
