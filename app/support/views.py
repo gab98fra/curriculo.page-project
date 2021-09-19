@@ -39,7 +39,7 @@ class FAQListView(ListView):
 
 
 class AssistanceView(TemplateView):
-    "Support view "
+    "Support template"
     
     template_name="support/assistance/assistance.html"
 
@@ -64,7 +64,7 @@ class AssistanceUpdateView(UpdateView):
     """Update support
     
     
-        :UpdateView, vista django
+        :UpdateView: django view
     """
 
     model=AssistanceModel
@@ -78,7 +78,7 @@ class FeedbackView(CreateView):
         Ajax request
         
         
-        :CreateViewm, vista django
+        :CreateViewm: django view
     """
     
     model=FeedbackModel
@@ -97,9 +97,7 @@ class FeedbackView(CreateView):
                 )
                 feedback.save()
                 
-                "Variables AJAX"
                 message="se registro correctamente "
-                #message=f'{self.model.__name__} registrado correctamente'
                 error="No hay error"
                 response=JsonResponse({'mensaje':message, "error":error})
                 response.status_code=201
