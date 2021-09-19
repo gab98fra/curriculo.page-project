@@ -3,17 +3,20 @@ from django.views.generic import TemplateView
 
 
 class HomeView(TemplateView):
-    "Página principal"
+    "Home page"
+    
     template_name="home/home.html"
 
 
 class Error404View(TemplateView):
     "Error 404"
+    
     template_name="home/404.html"
 
 
 class Error500View(TemplateView):
     "Error 500"
+    
     template_name="home/500.html"
 
     @classmethod
