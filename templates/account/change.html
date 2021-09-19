@@ -1,23 +1,15 @@
 {% extends "account/base.html" %}
 {% load static %}
-
 {% block content-form %}
-
                 <div class="login-form">
                     <form method="POST">{% csrf_token %}
-                       <!--  {{ form.as_p}}    -->
                        <h3>Importante</h3>
                        <h5></h45>VERIFICAR CORRECTAMENTE LOS DATOS INGRESADOS</h5>
                        <p>Debe contener al menos 8 caracteres alfanuméricos</p><br>
-                       
                         <div class="form-group">
-                           
                             <label>Contraseña actual: </label>{{form.old_password}}
                             <label>Nueva contraseña: </label>{{form.new_password1}}
                             <label>Repetir contraseña: </label>{{form.new_password2}}
-                            
-                            <!-- <label>Email address</label> -->
-                            <!-- <input type="email" class="form-control" placeholder="Email"> -->
                         </div>
                         <button type="submit" class="btn btn-primary btn-flat m-b-15">Cambiar contraseña</button>
                     </form>
