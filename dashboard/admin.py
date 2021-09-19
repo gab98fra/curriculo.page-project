@@ -7,7 +7,7 @@ from .models import (DatosPersonalesModel, DatosContactoModel, ExperienciaProfes
 
 
 class DatosPersonalesResource(resources.ModelResource):
-#Botón import y export
+  "Import & export"
 
     class Meta:
         model=DatosPersonalesModel
@@ -23,8 +23,6 @@ class DatosContactoAdmin(admin.ModelAdmin):
     readonly_fields=("modify_date")
 
 
-
-#Registro de modelos
 admin.site.register(DatosPersonalesModel, DatosPersonalesAdmin)
 admin.site.register(DatosContactoModel)
 admin.site.register(ObjetivoProfesionalModel)
