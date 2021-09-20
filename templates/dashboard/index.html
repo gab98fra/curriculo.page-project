@@ -19,7 +19,6 @@
     {% block style %}
     {% endblock style %}
 </head>
-
 <body>
     <!-- Left Panel -->
     <aside id="left-panel" class="left-panel">
@@ -29,8 +28,7 @@
                     <li class="active">
                         <a href="{% url 'dashboard' %}"><i class="menu-icon fa fa-laptop"></i>Dashboard </a>
                     </li>
-                    <li class="menu-title">Mis datos</li><!-- /.menu-title -->
-                
+                    <li class="menu-title">Mis datos</li><!-- /.menu-title -->         
                     <li class="menu-item-has-children dropdown"> 
                         <a href="{% url 'datos_personales' %}" class="dropdown-toggle" ><i class="menu-icon fa fa-user"></i>Personales</a>
                     </li>
@@ -55,7 +53,6 @@
                     <li class="menu-item-has-children dropdown">   
                         <a href="{% url 'cv' %}" class="dropdown-toggle"  aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-table"></i>Cv Archivo</a>
                     </li>
-
                     <li class="menu-title">Mi cuenta</li><!-- /.menu-title -->
                     <li class="menu-item-has-children dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-vcard"></i>Mi cuenta</a>
@@ -71,7 +68,6 @@
         </nav>
     </aside>
     <!-- /#left-panel -->
-
     <!-- Right Panel -->
     <div id="right-panel" class="right-panel">
         <!-- Header-->
@@ -107,7 +103,6 @@
                                 </a>
                             </div>
                         </div>
-
                         <div class="dropdown for-message">
                             <button class="btn btn-secondary dropdown-toggle" type="button" id="message" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 <i class="fa fa-question-circle"></i>
@@ -140,18 +135,14 @@
                             </div>
                         </div>
                     </div>
-
                     <div class="user-area dropdown float-right">
-                        <a href="#" class="dropdown-toggle active" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            
+                        <a href="#" class="dropdown-toggle active" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">  
                             {% if image %}
                                 <img class="user-avatar rounded-circle" src="{{image.url}}" alt="User Avatar">
                             {% else %}
                             <i class="menu-icon fa fa-user-circle"></i>
                             {% endif %}
-                            
                         </a>
-
                         <div class="user-menu dropdown-menu">
                             <a class="nav-link" href="{% url 'perfil' %}" target="_blank"><i class="fa fa- user"></i>Mi curriculum</a>
                             <a class="nav-link" href="#"><i class="fa fa- user"></i>Notificaciones <span class="count">13</span></a>
@@ -164,11 +155,9 @@
             </div>
         </header>
         <!-- /#header -->
-
         <!--rigth content -->
         {% block right-content %}
         {% endblock %}
-        
         <!-- Footer -->
         <footer class="site-footer">
             <div class="footer-inner bg-white">
@@ -185,7 +174,6 @@
         <!-- /.site-footer -->
     <!-- /#right-panel -->
     </div>   
-    
     <!-- Scripts -->
     <script src="https://cdn.jsdelivr.net/npm/jquery@2.2.4/dist/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.4/dist/umd/popper.min.js"></script>
@@ -193,12 +181,6 @@
     <script src="https://cdn.jsdelivr.net/npm/jquery-match-height@0.7.2/dist/jquery.matchHeight.min.js"></script>
     <!-- static javascript -->
     <script src="{% static 'account/assets/js/main.js' %}"></script>
-
-    
-    {% comment %}
-        Script: Actua al momento de ir a la ruta de perfil, enviado desde Perfil-mixins
-            -Se recomienda incluir SWEET ALERT
-    {% endcomment %}
     <script>
         {% if messages %}
             let html_msg="";
@@ -208,9 +190,7 @@
             alert(html_msg);
         {% endif %}
     </script>
-
     {% block scripts %}
     {% endblock scripts %}
-
     </body>
 </html>
