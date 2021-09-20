@@ -3,12 +3,12 @@ from django.shortcuts import redirect, render
 from django.urls import reverse_lazy
 from django.views.generic import TemplateView, ListView, CreateView, UpdateView, DeleteView
 from django.views.generic.base import View
+from profile.permissions import cvFilePermission
+from profile.mixins import CvFilePermissionMixin
 from dashboard.forms import (DatosPersonalesForm, DatosContactoForm, ExperienciaProfesionalForm, 
                     ObjetivoProfesionalForm,FormacionAcademicaForm, IdiomasForm, CursosCertificacionesForm, CvFileForm)
 from dashboard.models import (DatosPersonalesModel, DatosContactoModel, ExperienciaProfesionalModel, ObjetivoProfesionalModel,
                      FormacionAcademicaModel, IdiomasModel, CursosCertificacionesModel,CvFileModel )
-from profile.permissions import cvFilePermission
-from profile.mixins import CvFilePermissionMixin
 
 
 class DashboardView(TemplateView):
@@ -121,7 +121,7 @@ class DatosContactoCreateView(CreateView):
 
 
 class DatosContactoUpdateView(UpdateView):
-    
+    "Update data"
 
     model=DatosContactoModel
     form_class=DatosContactoForm
@@ -147,7 +147,7 @@ class ObjetivosView(View):
 
 
 class ObjetivosCreateView(TemplateView):
-    
+    "Create data"
 
     model=ObjetivoProfesionalModel
     template_name='dashboard/objetivo_profesional/create.html'
@@ -200,7 +200,7 @@ class ExperienciaProfesionalView(TemplateView):
             
 
 class ExperienciaProfesionalUpdateView(UpdateView):
-   
+    "Update data"
 
     model=ExperienciaProfesionalModel
     form_class=ExperienciaProfesionalForm
@@ -209,7 +209,7 @@ class ExperienciaProfesionalUpdateView(UpdateView):
     success_url=reverse_lazy("experiencia_profesional")
 
 class ExperienciaProfesionalCreateView(CreateView):
-   
+    "create data"
 
     model=ExperienciaProfesionalModel
     form_class=ExperienciaProfesionalForm
@@ -225,7 +225,8 @@ class ExperienciaProfesionalCreateView(CreateView):
         return super().form_valid(form)
 
 class ExperienciaProfesionaDeleteView(DeleteView):
-   
+    "delete data"
+    
     model=ExperienciaProfesionalModel
     context_object_name="form"
     template_name='dashboard/experiencia_profesional/delete.html'
