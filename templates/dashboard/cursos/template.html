@@ -14,18 +14,13 @@
         </div>
     </div>
 </div>
-
-
-
 <div class="content">
     <div class="animated fadeIn">
-        <div class="row">
-            
+        <div class="row">      
             <div class="col-md-12">
                 {% for data in data_user %}
                 <div class="card">
                     <div class="card-body">
-
                         <p>Curso: {{data.course}}</p>
                         <p>Institución: {{data.college}}</p>
                         <p>Link del certificado: {{data.link}}</p>
@@ -43,14 +38,11 @@
                         <a href="{% url 'cursos_agregar' %}" class="btn btn-primary">Agregar otra</a>
                         <a href="{% url 'perfil' %}" class="btn btn-success" target="_bank">Visitar mi Curriculum</a>
                     </div>
-                </div>
-                        
+                </div>      
             </div>
-
         </div>
     </div>
 </div>
-
 <div class="clearfix"></div>
 {% endblock %}
 
