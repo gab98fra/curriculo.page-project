@@ -21,13 +21,16 @@ class DashboardView(TemplateView):
     template_name="dashboard/dashboard.html"
 
     def get(self, request, *args, **kwargs):
+        
         try:
             data_user=self.model.objects.get(user=request.user)
             image=data_user.image
-            return render(request, self.template_name, {"image": image})
+            
         except:
+            
             image=False
-            return render(request, self.template_name, {"image":image})
+        
+        return render(request, self.template_name, {"image":image})
     
 
 class DatosPersonalesView(TemplateView):
@@ -37,10 +40,14 @@ class DatosPersonalesView(TemplateView):
     template_name="dashboard/datos_personales/template.html"
     
     def get(self, request, *args, **kwargs):
+        
         data_user=self.model.objects.filter(user=request.user)
+        
         if data_user:
+          
             return render(request, self.template_name, {"data_user":data_user})
         else:
+          
             return redirect("datos_personales_agregar")
 
 class DatosPersonalesCreateView(CreateView):
@@ -57,7 +64,10 @@ class DatosPersonalesCreateView(CreateView):
     success_url=reverse_lazy("datos_personales")
 
     def form_valid(self, form):
+        "get user"
+        
         form.instance.user = self.request.user
+        
         return super().form_valid(form)
 
 
@@ -87,9 +97,12 @@ class DatosContactoView(View):
     def get(self, request, *args, **kwargs):
       
         data_user=self.model.objects.filter(user=request.user)
+        
         if data_user:
+            
             return render(request, self.template_name, {"data_user":data_user})
         else:
+          
             return redirect("datos_contacto_agregar")
 
 class DatosContactoCreateView(CreateView):
@@ -123,10 +136,13 @@ class ObjetivosView(View):
     template_name="dashboard/objetivo_profesional/template.html"
     
     def get(self, request, *args, **kwargs):
+        
         data_user=self.model.objects.filter(user=request.user)
         if data_user:
+          
             return render(request, self.template_name, {"data_user":data_user})
         else:
+          
             return redirect("objetivos_agregar")
 
 
@@ -176,8 +192,10 @@ class ExperienciaProfesionalView(TemplateView):
         data_user=data_user.order_by("-is_active", "-start_date")# - DES
        
         if data_user:
+          
             return render(request, self.template_name, {"data_user":data_user})
         else:
+          
             return redirect("experiencia_profesional_agregar")
             
 
@@ -200,8 +218,10 @@ class ExperienciaProfesionalCreateView(CreateView):
     success_url=reverse_lazy("experiencia_profesional")
 
     def form_valid(self, form):
-        "Obtenemos el user, no se envía en el formulario"
+        "get user"
+        
         form.instance.user = self.request.user
+        
         return super().form_valid(form)
 
 class ExperienciaProfesionaDeleteView(DeleteView):
@@ -219,10 +239,14 @@ class FormacionAcademicaView(View):
     template_name="dashboard/formacion_academica/template.html"
     
     def get(self, request, *args, **kwargs):
+        
         data_user=self.model.objects.filter(user=request.user)
         if data_user:
+          
             return render(request, self.template_name, {"data_user":data_user})
+          
         else:
+          
             return redirect("formacion_academica_agregar")
             
 
@@ -245,7 +269,7 @@ class FormacionAcademicaCreateView(CreateView):
     success_url=reverse_lazy("formacion_academica")
 
     def form_valid(self, form):
-        "Obtenemos el user, no se envía en el formulario"
+      
         form.instance.user = self.request.user
         return super().form_valid(form)
 
@@ -263,10 +287,14 @@ class IdiomasView(View):
     template_name="dashboard/idiomas/template.html"
     
     def get(self, request, *args, **kwargs):
+        
         data_user=self.model.objects.filter(user=request.user)
+        
         if data_user:
+          
             return render(request, self.template_name, {"data_user":data_user})
         else:
+          
             return redirect("idiomas_agregar")
             
 
@@ -294,7 +322,6 @@ class IdiomasCreateView(CreateView):
         return super().form_valid(form)
 
 class IdiomasDeleteView(DeleteView):
-    "Elimina idioma"
 
     model=IdiomasModel
     context_object_name="form"
