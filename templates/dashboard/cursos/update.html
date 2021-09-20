@@ -1,7 +1,6 @@
 {% extends "dashboard/index.html" %}
 {% load static %}
 {% block right-content %}
-
 <div class="breadcrumbs">
     <div class="breadcrumbs-inner">
         <div class="row m-0">
@@ -15,33 +14,24 @@
         </div>
     </div>
 </div>
-
-
-
 <div class="content">
     <div class="animated fadeIn">
         <div class="row">
             <div class="col-md-12">
-
-
                 <div class="card">
                     <div class="card-header">
                         <strong class="card-title">Actualizacion datos</strong>
                     </div>
-
                     <div class="card-body">
                         <form action="" method="post">{% csrf_token %}
                             {{form.as_p}}
-                            <button type="submit">Enviar</button>
-                            
+                            <button type="submit">Enviar</button>  
                         </form>
                     </div>
-      
               </div>
             </div>
         </div>
     </div>
 </div>
-
 <div class="clearfix"></div>
 {% endblock %}
