@@ -18,21 +18,13 @@
         </div>
     </div>
 </div>
-
-
-
 <div class="content">
     <div class="animated fadeIn">
-        <div class="row">
-            
+        <div class="row">      
             <div class="col-md-12">
-                
-
                 <div class="card">
                     <div class="card-body">
-
                         {% for data in data_user %}
-
                         <p>Fecha de nacimiento: {{data.date_of_birth}}</p>
                         <p>Genero: {{data.sex}}</p>
                         <p>Dispuesto a reubicarse: {{data.relocate}}</p>
@@ -42,19 +34,14 @@
                         <p>Ciudad: {{data.city}}</p>
                         <p>Municipio: {{data.town}}</p>
                         <p>Otra información: {{data.other}}</p>
-                        
                         <a href="{% url 'datos_personales_modificacion' data.id %}" class="btn btn-danger">Actualizar  informacion</a>
                         {% endfor %}
                         <a href="{% url 'datos_contacto' %}" class="btn btn-success">Ir a datos de contacto</a>
-                
                     </div>
                 </div>
-    
             </div>
-
         </div>
     </div>
 </div>
-
 <div class="clearfix"></div>
 {% endblock %}
