@@ -14,18 +14,13 @@
         </div>
     </div>
 </div>
-
-
-
 <div class="content">
     <div class="animated fadeIn">
-        <div class="row">
-            
+        <div class="row">            
             <div class="col-md-12">
                 {% for data in data_user %}
                 <div class="card">
                     <div class="card-body">
-
                         <p>Nivel: {{data.educational_level}}</p>
                         <p>Institución: {{data.college}}</p>
                         <p>Especialidad o carrera: {{data.career}}</p>
@@ -43,12 +38,9 @@
                         <a href="{% url 'idiomas' %}" class="btn btn-success">Ir a Idiomas</a>
                     </div>
                 </div>
-                        
             </div>
-
         </div>
     </div>
 </div>
-
 <div class="clearfix"></div>
 {% endblock %}
