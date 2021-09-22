@@ -1,7 +1,6 @@
 {% extends "dashboard/index.html" %}
 {% load static %}
 {% block right-content %}
-
 <div class="breadcrumbs">
     <div class="breadcrumbs-inner">
         <div class="row m-0">
@@ -15,23 +14,16 @@
         </div>
     </div>
 </div>
-
-
-
 <div class="content">
     <div class="animated fadeIn">
         <div class="row">
             <div class="col-md-12">
-
-
                 <div class="card">
                     <div class="card-header">
                         <strong class="card-title">Crear Objetivo</strong>
                     </div>
-
                     <div class="card-body">
                         <form action="" method="post">{% csrf_token %}
-                            <!--  {{form.as_p}} -->
                             <p><label for="id_employment">Puesto deseado:</label> <input type="text" name="employment" maxlength="50" required id="id_employment"></p>
                             <p><label for="id_salary">Sueldo deseado:</label> <input type="number" name="salary" step="any" required id="id_salary"></p>
                             <p><label for="id_divisa">Divisa:</label> 
@@ -46,14 +38,10 @@
                             <button type="submit" class="btn btn-primary">Enviar</button>
                         </form>
                     </div>
-      
               </div>
             </div>
         </div>
     </div>
 </div>
-
-
-
 <div class="clearfix"></div>
 {% endblock %}
