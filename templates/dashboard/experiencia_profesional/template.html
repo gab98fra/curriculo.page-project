@@ -14,18 +14,13 @@
         </div>
     </div>
 </div>
-
-
-
 <div class="content">
     <div class="animated fadeIn">
-        <div class="row">
-            
+        <div class="row">            
             <div class="col-md-12">
                 {% for data in data_user %}
                 <div class="card">
                     <div class="card-body">
-
                         <p>Posición: {{data.employment}}</p>
                         <p>Empresa: {{data.company}}</p>
                         <p>Actividades: {{data.activities}}</p>
@@ -42,13 +37,10 @@
                         <a href="{% url 'experiencia_profesional_agregar' %}" class="btn btn-success">Agregar otra</a>
                         <a href="{% url 'formacion_academica' %}" class="btn btn-success">Ir a Formacion Académica</a>
                     </div>
-                </div>
-                        
+                </div>                        
             </div>
-
         </div>
     </div>
 </div>
-
 <div class="clearfix"></div>
 {% endblock %}
