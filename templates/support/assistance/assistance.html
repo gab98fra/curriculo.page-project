@@ -14,37 +14,26 @@
         </div>
     </div>
 </div>
-
 <div class="content">
     <div class="animated fadeIn">
-        <div class="row">
-            
+        <div class="row">      
             <div class="col-md-12">
                 <div class="card">
-
                     <div class="card-header">
                         <strong class="card-title">Asesoría solicitada</strong>
                     </div>
-
                     <button class="btn btn-primary" onclick="open_modal_create('{% url 'support:assistance_create' %}')">Solicitar Asesoría</button>
                     <a class="btn btn-success" href="{% url 'support:assistance_list' %}">Lista de asesoria</a>
-
                 </div>              
             </div>
-
         </div>
     </div>
 </div>
-
 <div class="modal fade" id="create" role="dialog"></div>
-
 <div class="clearfix"></div>
 {% endblock %}
-
-
 {% block scripts %}
 <script text="text/javascript">
-    //Para no generar conflictos
     var $=jQuery.noConflict();
     function open_modal_create(url){
         $('#create').load(url, function(){
@@ -52,6 +41,5 @@
         })
         
     }
-
 </script>
 {% endblock scripts %}
